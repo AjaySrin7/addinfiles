@@ -1,4 +1,5 @@
-
+var _fromDate = document.querySelector("#startDate").value; //from Date picker
+var _toDate = document.querySelector("#endDate").value;  //from Date picker  
 
 // To process submit button click
 
