@@ -51,7 +51,7 @@ function LoadChart() {
 }
 
 // To fetch exception events
-async function GetExceptions(_fromDate,_toDate,_deviceId,_ruleId){
+async function GetExceptions(api,_fromDate,_toDate,_deviceId,_ruleId){
     
 
 return new Promise((resolve,reject)=>{
