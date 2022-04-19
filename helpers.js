@@ -3,16 +3,7 @@
 var idlingCount = 0
 var speedingCount =0
 
-var chartData = {
-    labels: ['Idling', 'Speeding'],
-    datasets: [{
-        fill: true,
-        backgroundColor: ['red', 'green'],
-        data: [idlingCount, speedingCount],       
-        borderColor: ['black', 'black'],
-        borderWidth: [2, 2]
-    }]
-}
+
 var options = {
     title: {
         display: true,
@@ -25,6 +16,17 @@ var options = {
 // To populate canvas with chart 
 function LoadChart() {
     console.log('Page is loaded')
+    var chartData = {
+    labels: ['Idling', 'Speeding'],
+    datasets: [{
+        fill: true,
+        backgroundColor: ['red', 'green'],
+        data: [idlingCount, speedingCount],       
+        borderColor: ['black', 'black'],
+        borderWidth: [2, 2]
+    }]
+}
+    console.log('cd',chartData)
     var head = document.getElementsByTagName('head')[0]
     var script = document.createElement('script')
     script.type = 'text/javascript'
