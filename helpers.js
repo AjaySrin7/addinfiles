@@ -1,17 +1,4 @@
-// Chart parameters
 
-var idlingCount = 0
-var speedingCount =0
-
-
-var options = {
-    title: {
-        display: true,
-        text: 'Exceptions By Type'
-
-    }
-
-}
 
 // To process submit button click
 
