@@ -12,10 +12,10 @@
     focus(api, state) {
      console.log('in focus')
      
-GetExceptions("2022-03-01","2022-04-01","bB","RuleIdlingId")
+GetExceptions(api,"2022-03-01","2022-04-01","bB","RuleIdlingId")
 .then(res=>{
     console.log(res)
-    GetExceptions("2022-03-01","2022-04-01","bB","RulePostedSpeedingId")
+    GetExceptions(api,"2022-03-01","2022-04-01","bB","RulePostedSpeedingId")
     .then(res=>{
         console.log(res)
         LoadChart()
