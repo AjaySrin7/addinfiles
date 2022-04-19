@@ -11,16 +11,22 @@
     },
     focus(api, state) {
      console.log('in focus')
-     
-GetExceptions(api,"2022-03-01","2022-04-01","bB","RuleIdlingId")
+   
+     // event handler for submit
+     document.querySelector("#submitBtn").onclick=function(){
+     var _fromDate = document.querySelector("#startDate").value; //from Date picker
+     var _toDate = document.querySelector("#endDate").value;  //from Date picker  
+
+GetExceptions(api,_fromDate,_toDate,"bB","RuleIdlingId")
 .then(res=>{
     console.log(res)
-    GetExceptions(api,"2022-03-01","2022-04-01","bB","RulePostedSpeedingId")
+    GetExceptions(api,_fromDate,_toDate,"bB","RulePostedSpeedingId")
     .then(res=>{
         console.log(res)
         LoadChart()
     })
 })
+     }
      
 
      // User interface is available
@@ -35,7 +41,11 @@ GetExceptions(api,"2022-03-01","2022-04-01","bB","RuleIdlingId")
 
 <body>
     <h1>Data Visualization</h1>
-
+    <div id="dateSelect">
+        <label>Start Date<input type="Date" id="startDate"/></label>
+        <label>End Date<input type="Date" id="endDate"/></label>
+        <button type="input" id="submitBtn">Submit</button>
+    </div>
     <canvas id="chartCanvas" style="max-width:600px;max-height: 800px;padding-left:50px"></canvas>
 
     <script src="helpers.js"></script>
