@@ -1,4 +1,4 @@
-var data = {
+var chartData = {
     labels: ['Exception 1 ', 'Exception 2'],
     datasets: [{
         fill: true,
@@ -36,14 +36,10 @@ function myFunction() {
         // Chart declaration:
         var myPieChart = new Chart(ctx, {
             type: 'pie',
-            data: data,
+            data: chartData,
             options: options
         })
     })
-
-
-
-    // Notice the rotation from the documentation.
 
 
 }
