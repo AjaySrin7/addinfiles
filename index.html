@@ -11,7 +11,18 @@
     },
     focus(api, state) {
      console.log('in focus')
-     myFunction()
+     
+GetExceptions("2022-03-01","2022-04-01","bB","RuleIdlingId")
+.then(res=>{
+    console.log(res)
+    GetExceptions("2022-03-01","2022-04-01","bB","RulePostedSpeedingId")
+    .then(res=>{
+        console.log(res)
+        LoadChart()
+    })
+})
+     
+
      // User interface is available
     },
     blur(api, state) {
