@@ -7,70 +7,22 @@
 
    return {
     initialize(api, state, callback) {
-  
-     
-     // Event handler
- document.querySelector("#submitBtn").onclick=GenerateChart(_fromDate,_toDate)
-
-// Chart parameters
-
-var idlingCount = 0
-var speedingCount =0
-
-
-var options = {
-    title: {
-        display: true,
-        text: 'Exceptions By Type'
-
-    }
-
-}
-
-// To fetch exception events
-async function GetExceptions(api,_fromDate,_toDate,_deviceId,_ruleId){
-    
-
-return new Promise((resolve,reject)=>{
-    
-api.call("Get", {
-    "typeName": "ExceptionEvent",
-    "search":{
-        fromDate:_fromDate,
-        toDate:_toDate,
-        deviceSearch:{
-            id:_deviceId
-        },
-        
-            ruleSearch:{
-                id:_ruleId
-            }
-         
-    },
-}, function(result) {
-    if(_ruleId==="RuleIdlingId"){
-        idlingCount=result.length
-        resolve(idlingCount)
-    }
-    else{
-        if(_ruleId==="RulePostedSpeedingId"){
-            speedingCount=result.length
-            resolve(speedingCount)
-        }
-    }
-    return result.length
-}, function(e) {
-    resolve(0)
-     });
-})
-
-};
-
      callback();
     },
     focus(api, state) {
-     console.log('in focus')     
-  
+     console.log('in focus')
+     
+GetExceptions("2022-03-01","2022-04-01","bB","RuleIdlingId")
+.then(res=>{
+    console.log(res)
+    GetExceptions("2022-03-01","2022-04-01","bB","RulePostedSpeedingId")
+    .then(res=>{
+        console.log(res)
+        LoadChart()
+    })
+})
+     
+
      // User interface is available
     },
     blur(api, state) {
@@ -83,19 +35,10 @@ api.call("Get", {
 
 <body>
     <h1>Data Visualization</h1>
-     <div id="dateSelect">
-        <label>Start Date<input type="Date" id="startDate"/></label>
-        <label>End Date<input type="Date" id="endDate"/></label>
-        <button type="input">Submit</button>
-    </div>
+
     <canvas id="chartCanvas" style="max-width:600px;max-height: 800px;padding-left:50px"></canvas>
 
     <script src="helpers.js"></script>
 </body>
-<style>
-    input[type="date"] {
-        display: block;
-        margin-bottom: 25px;
-    }
-</style>
+
 </html>
