@@ -4,12 +4,11 @@ var idlingCount = 0
 var speedingCount =0
 
 var chartData = {
-    labels: ['Exception 1 ', 'Exception 2'],
+    labels: ['Idling', 'Speeding'],
     datasets: [{
         fill: true,
         backgroundColor: ['red', 'green'],
-        data: [5, 95],
-        // Notice the borderColor
+        data: [idlingCount, speedingCount],       
         borderColor: ['black', 'black'],
         borderWidth: [2, 2]
     }]
