@@ -2,7 +2,7 @@
 
 // To process submit button click
 
-function GenerateChart(_fromDate,_toDate){
+function GenerateChart(api,_fromDate,_toDate){
 GetExceptions(api,_fromDate,_toDate,"bB","RuleIdlingId")
 .then(res=>{
     console.log(res)
