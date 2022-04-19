@@ -24,7 +24,7 @@ var options = {
 }
 
 // To populate canvas with chart 
-function loadChart() {
+function LoadChart() {
     console.log('Page is loaded')
     var head = document.getElementsByTagName('head')[0]
     var script = document.createElement('script')
