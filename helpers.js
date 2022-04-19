@@ -3,17 +3,7 @@
 var idlingCount = 0
 var speedingCount =0
 
-var chartData = {
-    labels: ['Exception 1 ', 'Exception 2'],
-    datasets: [{
-        fill: true,
-        backgroundColor: ['red', 'green'],
-        data: [5, 95],
-        // Notice the borderColor
-        borderColor: ['black', 'black'],
-        borderWidth: [2, 2]
-    }]
-}
+
 var options = {
     title: {
         display: true,
@@ -26,6 +16,18 @@ var options = {
 // To populate canvas with chart 
 function LoadChart() {
     console.log('Page is loaded')
+
+    var chartData = {
+    labels: ['Idling', 'Speeding'],
+    datasets: [{
+        fill: true,
+        backgroundColor: ['red', 'green'],
+        data: [idlingCount,speedingCount],
+        // Notice the borderColor
+        borderColor: ['black', 'black'],
+        borderWidth: [2, 2]
+    }]
+}
     var head = document.getElementsByTagName('head')[0]
     var script = document.createElement('script')
     script.type = 'text/javascript'
