@@ -55,7 +55,3 @@ function LoadChart() {
 }
 
 
-});
-})
-
-};
