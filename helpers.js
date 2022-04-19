@@ -13,6 +13,22 @@ var options = {
 
 }
 
+// To process submit button click
+
+function GenerateChart(_fromDate,_toDate){
+GetExceptions(api,_fromDate,_toDate,"bB","RuleIdlingId")
+.then(res=>{
+    console.log(res)
+    GetExceptions(api,_fromDate,_toDate,"bB","RulePostedSpeedingId")
+    .then(res=>{
+        console.log(res)
+        LoadChart()
+    })
+})
+     
+}
+
+
 // To populate canvas with chart 
 function LoadChart() {
     console.log('Page is loaded')
