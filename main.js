@@ -48,6 +48,10 @@
           blur (api, state) {
             // Save any Add-In state
             console.log('in blur')
+            /*
+            pie chart remain populated on subsequent visits 
+            since the chart object is not cleared/re-initialized
+            */
           }
         }
       }
