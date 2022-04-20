@@ -8,6 +8,8 @@
         return {
           initialize (api, state, callback) {
             console.log('in initialize')
+
+            //Initializing variables    
             options = {
               title: {
                 display: true,
@@ -19,8 +21,8 @@
 
           focus (api, state) {
             console.log('in focus')
-
-            // event handler for submit button
+            
+            // Event handler for submit button
             document.querySelector('#submitBtn').onclick = function () {
               var _fromDate = document.querySelector('#startDate').value //from Date picker
               var _toDate = document.querySelector('#endDate').value //from Date picker
@@ -43,7 +45,7 @@
               )
             }
 
-            // User interface is available
+           
           },
           blur (api, state) {
             // Save any Add-In state
