@@ -1,102 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
- <title>Custom Page Add-In</title>
- <script>
-  geotab.addin.myaddin = () => {
+  <head>
+    <title>Exceptions Count</title>
+    <script src="main.js"></script>
+  </head>
 
-   return {
-    initialize(api, state, callback) {
-var _fromDate = document.querySelector("#startDate").value; //from Date picker
-var _toDate = document.querySelector("#endDate").value;  //from Date picker    
-     
-     // Event handler
- document.querySelector("#submitBtn").onclick=GenerateChart(_fromDate,_toDate)
-
-// Chart parameters
-
-var idlingCount = 0
-var speedingCount =0
-
-
-var options = {
-    title: {
-        display: true,
-        text: 'Exceptions By Type'
-
-    }
-
-}
-
-// To fetch exception events
-async function GetExceptions(api,_fromDate,_toDate,_deviceId,_ruleId){
-    
-
-return new Promise((resolve,reject)=>{
-    
-api.call("Get", {
-    "typeName": "ExceptionEvent",
-    "search":{
-        fromDate:_fromDate,
-        toDate:_toDate,
-        deviceSearch:{
-            id:_deviceId
-        },
-        
-            ruleSearch:{
-                id:_ruleId
-            }
-         
-    },
-}, function(result) {
-    if(_ruleId==="RuleIdlingId"){
-        idlingCount=result.length
-        resolve(idlingCount)
-    }
-    else{
-        if(_ruleId==="RulePostedSpeedingId"){
-            speedingCount=result.length
-            resolve(speedingCount)
-        }
-    }
-    return result.length
-}, function(e) {
-    resolve(0)
-     });
-})
-
-};
-
-     callback();
-    },
-    focus(api, state) {
-     console.log('in focus')     
-  
-     // User interface is available
-    },
-    blur(api, state) {
-     // Save any Add-In state
-    }
-   };
-  };
- </script>
-</head>
-
-<body>
-    <h1>Data Visualization</h1>
-     <div id="dateSelect">
-        <label>Start Date<input type="Date" id="startDate"/></label>
-        <label>End Date<input type="Date" id="endDate"/></label>
-        <button type="input">Submit</button>
+  <body>
+    <h1>Data Visualization Example</h1>
+    <div id="dateSelect">
+      <label>Start Date<input type="Date" id="startDate"/></label>
+      <label>End Date<input type="Date" id="endDate"/></label>
+      <button type="input" id="submitBtn">Submit</button>
     </div>
-    <canvas id="chartCanvas" style="max-width:600px;max-height: 800px;padding-left:50px"></canvas>
+    <canvas
+      id="chartCanvas"
+      style="max-width:600px;max-height: 800px;padding-left:50px">
+    </canvas>
 
     <script src="helpers.js"></script>
-</body>
-<style>
-    input[type="date"] {
-        display: block;
-        margin-bottom: 25px;
-    }
-</style>
+  </body>
+
 </html>
