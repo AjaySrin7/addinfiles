@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Exceptions Count</title>
-    <script src="main.js"></script>
-    <script src="helpers.js" defer></script>
-    
-  </head>
+<head>
+ <title>Custom Page Add-In</title>
+ <script>
+  geotab.addin.myCustomPage1 = () => {
 
-  <body>
-    <h1>Data Visualization Example</h1>
-    <div id="dateSelect">
-      <label>Start Date<input type="Date" id="startDate"/></label>
-      <label>End Date<input type="Date" id="endDate"/></label>
-      <button type="input" id="submitBtn">Submit</button>
-    </div>
-    <canvas
-      id="chartCanvas"
-      style="max-width:600px;max-height: 800px;padding-left:50px">
-    </canvas>
-
-  </body>
-
+   return {
+    initialize(api, state, callback) {
+     callback();
+    },
+    focus(api, state) {
+     // User interface is available
+    },
+    blur(api, state) {
+     // Save any Add-In state
+    }
+   };
+  };
+ </script>
+</head>
+<body>
+    <iframe width=100% height=600 src="https://www.wikipedia.org"></iframe>
+</body>
 </html>
