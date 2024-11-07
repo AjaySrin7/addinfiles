@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        geotab.addin.myCustomPage1 = () => {
+
+            return {
+                initialize(api, state, callback) {
+                    console.log(`add-in has launched for the first time at ${new Date().toISOString()} `)
+                    callback();
+                },
+                focus(api, state) {
+                    console.log('User has clicked the add-in and is focused on the UI')
+                    const getUserInfo=()=>{
+                        console.log('button click')
+                    }
+                },
+                blur(api, state) {
+                    console.log('User has navigated away from the add-in')
+                }
+            };
+        };
+    </script>
+</head>
+
+<body>
+   <h1>This is a test add-in to demonstrate adding user</h1>
+   <button onclick="getUserInfo()">
+    Add User
+   </button>
+</body>
+
+</html>
